@@ -77,6 +77,7 @@ class ResetPasswordTest extends TestCase
         $token = $this->app->make('auth.password.broker')->createToken($user);
 
         $response = $this->followingRedirects()
+            ->from('password/reset')
             ->post('password/reset', [
                 'token' => $token,
                 'email' => 'john@example.com',
@@ -97,6 +98,7 @@ class ResetPasswordTest extends TestCase
         $token = $this->app->make('auth.password.broker')->createToken($user);
 
         $response = $this->followingRedirects()
+            ->from('password/reset')
             ->post('password/reset', [
                 'token' => $token,
                 'email' => 'john@example.com',
